@@ -5,7 +5,7 @@ const userIsLoggedIn = true;
 const AppRoute = ({ component: Component, path, isPrivate, ...props }) => {
 	return (
 		<Route path={path}
-			render={(props) => isPrivate && !userIsLoggedIn ?
+			render={() => isPrivate && !userIsLoggedIn ?
 				<Redirect to="/" />
 				: <Component {...props} />
 			}
