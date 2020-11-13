@@ -10,8 +10,9 @@ function App() {
 				{/* <Counter /> */}
 				<Switch>
 					{routes.map(route => {
+						console.log(route);
 						return (
-							<AppRoute key={route.path} path={route.path} component={route.component} isPrivate={route.isPrivate} />
+							<AppRoute key={route.path} path={route.path} component={route.component} isPrivate={route.isPrivate} isExact={route.isExact} />
 						)
 					})}
 				</Switch>

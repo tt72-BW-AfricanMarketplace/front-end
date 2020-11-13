@@ -9,6 +9,7 @@ export const COUNTER = {
 	component: views.Counter,
 	path: COUNTER_PATH,
 	isPrivate: false,
+	isExact: false,
 };
 
 export const HOMEPAGE = {
@@ -18,5 +19,5 @@ export const HOMEPAGE = {
 	isExact: true,
 };
 
-const ROUTES = [HOMEPAGE, COUNTER];
+const ROUTES = [COUNTER, HOMEPAGE];
 export default ROUTES;

@@ -34,6 +34,7 @@ const buttonThemes = theme.variants("mode", "variant", {
 });
 
 const StyledButton = styled.button`
+	font: inherit;
 	${buttonThemes};
 	display: inline-flex;
 	flex-flow: row nowrap;
@@ -43,8 +44,6 @@ const StyledButton = styled.button`
 	width: 15rem;
 	/* text-align: center; */
 	margin: 0 1rem;
-	padding: 1rem;
-	/* padding: 6px 12px; */
 	white-space: nowrap;
 	text-decoration: none;
 	font-size: ${props => {
@@ -55,7 +54,9 @@ const StyledButton = styled.button`
 	}};
 	outline: none;
 	border: none;
-	cursor: pointer;
+	cursor: inherit;
+	padding: inherit;
+	
 `;
 
 StyledButton.propTypes = {
