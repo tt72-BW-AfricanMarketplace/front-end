@@ -1,7 +1,7 @@
 import Button from "./components/Button";
 import Card from "./components/Card";
 import Container from "./components/Container";
-import Flex from "./components/Flex";
+import Flex, { Column } from "./components/Flex";
 import Heading from "./components/Heading";
 import Link from "./components/Link";
 import Loader from "./components/Loader";
@@ -16,6 +16,7 @@ const components = {
 	Heading,
 	Link,
 	Loader,
+	Column,
 	buildClicker,
 	buildGeneral,
 	buildBackground,

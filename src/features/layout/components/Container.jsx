@@ -1,7 +1,12 @@
 // import React from 'react'
 import styled from 'styled-components'
 
+/**
+ * Prop Options: full, fullVertical, small
+ * <Container full fullVertical small></Container>
+ */
 const Container = styled.div`
+	box-sizing: border-box;
     padding-left: ${props => {
 		if (props.full) return 0
 		return 'calc((100vw - 960px) / 2)'
