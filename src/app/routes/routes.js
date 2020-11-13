@@ -15,7 +15,8 @@ export const HOMEPAGE = {
 	component: views.HomePage,
 	path: HOMEPAGE_PATH,
 	isPrivate: false,
-}
+	isExact: true,
+};
 
 const ROUTES = [HOMEPAGE, COUNTER];
 export default ROUTES;

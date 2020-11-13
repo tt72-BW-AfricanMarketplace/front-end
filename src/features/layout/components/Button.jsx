@@ -3,65 +3,50 @@ import styled, { css } from 'styled-components';
 import theme from "styled-theming";
 import Loader from './Loader';
 import PropTypes from "prop-types";
+import { buildGeneral } from "../generators";
 
-const buttonColors = theme.variants("mode", "variant", {
-	default: {
-		dark: css`
-			background-color: var(--tPrimary);
-			color: var(--white);
-			&:hover {
-				cursor: pointer;
-				background-color: var(--tDarkAlt);
-			}
-			&:active {
-				background-color: var(--tDark);
-			}
-		`,
-		light: css`
-			background-color: var(--tPrimary);
-			color: var(--white);
-			&:hover {
-				cursor: pointer;
-				background-color: var(--tDarkAlt);
-			}
-			&:active {
-				background-color: var(--tDark);
-			}
-		`,
-	},
-	inverse: {
-		dark: css`
-			background-color: var(--white);
-			color: var(--tPrimary);
-			&:hover {
-				cursor: pointer;
-				background-color: var(--pLighter);
-			}
-			&:active {
-				background-color: var(--pDark);
-			}
-		`,
-		light: css`
-			background-color: var(--white);
-			color: var(--tPrimary);
-			&:hover {
-				cursor: pointer;
-				background-color: var(--pLighter);
-			}
-			&:active {
-				background-color: var(--pDark);
-			}
-		`,
+const defaultButton = css`
+	background-color: var(--tPrimary);
+	color: var(--white);
+	&:hover {
+		cursor: pointer;
+		background-color: var(--tDarkAlt);
 	}
+	&:active {
+		background-color: var(--tDark);
+	}
+`;
+const inverseButton = css`
+	background-color: var(--white);
+	color: var(--tPrimary);
+	&:hover {
+		cursor: pointer;
+		background-color: var(--pLighter);
+	}
+	&:active {
+		background-color: var(--pDark);
+	}
+`;
+
+const buttonThemes = theme.variants("mode", "variant", {
+	default: buildGeneral(defaultButton),
+	inverse: buildGeneral(inverseButton),
 });
 
-const StyButton = styled.button`
-	${buttonColors};
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+const StyledButton = styled.button`
+	${buttonThemes};
+	display: inline-flex;
+	flex-flow: row nowrap;
 	justify-content: center;
-	padding: 6px 12px;
+	align-items: center;
+	height: 5rem;
+	width: 15rem;
+	/* text-align: center; */
+	margin: 0 1rem;
+	padding: 1rem;
+	/* padding: 6px 12px; */
+	white-space: nowrap;
+	text-decoration: none;
 	font-size: ${props => {
 		if (props.big) {
 			return '2rem';
@@ -71,22 +56,21 @@ const StyButton = styled.button`
 	outline: none;
 	border: none;
 	cursor: pointer;
-	margin: 1.5rem;
 `;
 
-StyButton.propTypes = {
+StyledButton.propTypes = {
 	variant: PropTypes.oneOf(["default", "inverse"])
 };
 
-StyButton.defaultProps = {
+StyledButton.defaultProps = {
 	variant: "default",
 };
 
 const Button = ({ variant, secondary, big, inverse, loading, children, ...props }) => {
 	return (
-		<StyButton variant={variant} secondary={secondary} big={big} inverse={inverse} {...props}>
+		<StyledButton variant={variant} secondary={secondary} big={big} inverse={inverse} {...props}>
 			{loading ? <Loader small white /> : children}
-		</StyButton>
+		</StyledButton>
 	)
 }
 

@@ -2,7 +2,10 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 const userIsLoggedIn = true;
 
-const AppRoute = ({ component: Component, path, isPrivate, ...props }) => {
+const AppRoute = ({ component: Component, path, isPrivate, isExact = false, ...props }) => {
+	if (isExact && isExact !== "undefined") {
+		return <Route exact path={path} render={<Component {...props} />} {...props} />
+	}
 	return (
 		<Route path={path}
 			render={() => isPrivate && !userIsLoggedIn ?
