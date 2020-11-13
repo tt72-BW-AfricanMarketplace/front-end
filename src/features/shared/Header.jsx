@@ -2,8 +2,9 @@ import React from "react";
 import ThemeToggler from "./ThemeToggler";
 import styled from "styled-components";
 import layout from "../layout";
-
-const { Heading, Link, Container, Flex } = layout;
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../login/loginSlice";
+const { Heading, Link, Button } = layout;
 
 // const headerStyles = theme("mode",
 // 	createBackgroundStyles(prussianblue, honeydew, "black", honeydew)
@@ -33,17 +34,25 @@ const StyledHeader = styled.header`
 `;
 
 const Header = props => {
+	const dispatch = useDispatch();
+	const isLoggedIn = useSelector(state => state.login.isLoggedIn);
+	const handleLogout = () => {
+		dispatch(logout());
+	}
 	return (
 		<StyledHeader>
 			<div className="container">
 				<div>
-					<Heading h1 noMargin>App Title</Heading>
+					<Heading h1 noMargin>African Marketplace</Heading>
 				</div>
 				<div>
 					<nav>
 						<Link to="/">Home</Link>
 						<Link to="/counter">Counter</Link>
-						<Link to="/login">Login</Link>
+						{!isLoggedIn ?
+							<Link to="/login">Login</Link>
+							: <Button onClick={handleLogout}>Logout</Button>
+						}
 					</nav>
 				</div>
 				<div>

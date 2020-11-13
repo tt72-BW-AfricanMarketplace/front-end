@@ -1,8 +1,8 @@
 // import { useForm } from "../../hooks/useForm";
 import React from "react";
 import Form from "../shared/Form";
-import {useSelector, useDispatch} from "react-redux";
-import {login} from "./loginSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "./loginSlice";
 
 const loginVals = [
 	{

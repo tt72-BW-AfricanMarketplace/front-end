@@ -6,7 +6,7 @@ export const axiosAuth = () => {
 		headers: {
 			Authorization: token,
 		},
-		baseURL: "", //TODO: ADD BASE URL
+		baseURL: "http://localhost:5000/api", //TODO: ADD BASE URL
 	});
 }
 
