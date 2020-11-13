@@ -3,6 +3,7 @@ import views from "../../features/views";
 
 export const HOMEPAGE_PATH = "/";
 export const COUNTER_PATH = "/counter";
+export const STYLESHEET_PATH = "/stylesheet";
 export const LOGIN_PATH = "/login";
 
 
@@ -12,6 +13,13 @@ export const COUNTER = {
 	isPrivate: false,
 	isExact: false,
 };
+
+export const STYLESHEET = {
+	component: views.Stylesheet,
+	path: STYLESHEET_PATH,
+	isPrivate: false,
+	isExact: false,
+}
 
 export const LOGIN = {
 	component: views.LoginPage,
@@ -28,5 +36,5 @@ export const HOMEPAGE = {
 };
 
 //NOTE: HOMEPAGE MUST BE LAST BECAUSE OF ROUTE PATH
-const ROUTES = [COUNTER, LOGIN, HOMEPAGE];
+const ROUTES = [STYLESHEET, LOGIN, HOMEPAGE];
 export default ROUTES;

@@ -10,7 +10,7 @@ const defaultButton = css`
 	color: var(--white);
 	&:hover {
 		cursor: pointer;
-		background-color: var(--tDarkAlt);
+		background-color: var(--tDark);
 	}
 	&:active {
 		background-color: var(--tDark);

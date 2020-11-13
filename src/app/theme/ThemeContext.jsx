@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 import styled, { ThemeProvider, css } from "styled-components";
 import theme from "styled-theming";
 import { useLocalTheme } from "./useLocalTheme";
-import { microsoftPallette, rootVars } from "./theme";
+import { rootVars } from "./theme";
 
 const ThemeToggleContext = createContext();
 export const useTheme = () => useContext(ThemeToggleContext);
@@ -21,7 +21,6 @@ const wrapTheme = theme("mode", {
 const Wrapper = styled.div`
 	${rootVars};
 	${wrapTheme};
-	${microsoftPallette};
 	min-width: 100vw;
 	min-height: 100vh;
 `;

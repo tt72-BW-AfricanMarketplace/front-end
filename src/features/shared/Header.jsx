@@ -48,7 +48,7 @@ const Header = props => {
 				<div>
 					<nav>
 						<Link to="/">Home</Link>
-						<Link to="/counter">Counter</Link>
+						<Link variant="inverse" to="/stylesheet">Stylesheet</Link>
 						{!isLoggedIn ?
 							<Link to="/login">Login</Link>
 							: <Button onClick={handleLogout}>Logout</Button>
