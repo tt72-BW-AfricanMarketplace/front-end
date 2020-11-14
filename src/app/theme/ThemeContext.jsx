@@ -16,7 +16,7 @@ const wrapTheme = theme("mode", {
 		background-color: var(--pBase);
 		color: var(--pText);
 	`,
-})
+});
 
 const Wrapper = styled.div`
 	${rootVars};
@@ -27,8 +27,6 @@ const Wrapper = styled.div`
 
 export const ThemeContextProvider = ({ children }) => {
 	const [themeState, setThemeState] = useLocalTheme();
-
-
 	const toggle = () => {
 		const mode = (themeState === "light" ? "dark" : "light");
 		setThemeState(mode);

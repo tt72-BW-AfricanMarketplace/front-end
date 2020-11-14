@@ -1,8 +1,6 @@
 import { css } from "styled-components";
 import theme from "styled-theming";
 
-
-
 const buildHex = (arr) => {
 	return arr.map(x => {
 		return `#${x}`;
